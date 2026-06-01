@@ -1,0 +1,129 @@
+:root {
+  --bg:      #1a1b26;  
+  --panel:   #24283b;  
+  --border:  #414868;  
+  --text:    #c0caf5;  
+  --muted:   #565f89;  
+  --accent:  #7aa2f7;  
+  --ok:      #9ece6a;  
+  --ng:      #f7768e;  
+}
+
+/* 全体の土台 */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 1.5rem;
+  max-width: 800px;
+  margin-inline: auto;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+h1 { font-size: 1.3rem; margin: 0 0 1rem; }
+
+/* タブ */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+nav button {
+  padding: 0.4rem 0.9rem;
+  background: var(--panel);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+/* 選択中のタブ */
+nav button.active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* 検索・入力欄・ボタン共通 */
+input, textarea, select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+textarea { resize: vertical; min-height: 3rem; }
+
+/* 日付入力のカレンダーアイコンを白くしてダーク背景でも見えるように調整した */
+input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8); cursor: pointer; }
+
+/* 追加フォーム */
+form {
+  padding: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+form button {
+  width: 100%;
+  padding: 0.6rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+/*  一覧のカード */
+.card {
+  position: relative;
+  padding: 0.9rem 4rem 0.9rem 0.9rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+}
+
+.card .row { margin-bottom: 0.2rem; word-break: break-word; }
+.card .field-label { color: var(--muted); }  
+.card .date { color: var(--muted); font-size: 12px; }
+.card a { color: var(--accent); }
+
+/* 編集・削除ボタン（右上に並べる） */
+.card .edit,
+.card .delete {
+  position: absolute;
+  top: 0.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+.card .edit   { right: 2.3rem; }  
+.card .delete { right: 0.6rem; }
+
+/* 状態の色分けは下記にある*/
+.status-課題が存在した,  .status-実装済み { color: var(--ok); }
+.status-課題が存在しなかった              { color: var(--ng); }
+.done { text-decoration: line-through; color: var(--muted); } /* 実装済みMVP */
+
+/* 何もないときの案内 */
+.empty { color: var(--muted); text-align: center; padding: 2rem; }
