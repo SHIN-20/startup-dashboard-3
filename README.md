@@ -8,6 +8,7 @@
 をメモできるものを制作したいと思いました。<br>
 
 ## ③アプリのデプロイURL<br>
+https://shin-20.github.io/startup-dashboard-3/<br>
 
 ## ④アプリのログイン用IDまたはPassword（ある場合）<br>
 なし<br>
